@@ -95,6 +95,7 @@
   font-family: var(--font-secondary);
   font-size: 0.9rem;
   align-items: center;
+  color : rgba(15, 23, 42, 0.75);
 }
 
 .view-project-link {
