@@ -1,16 +1,80 @@
-# React + Vite
+# Noah Calmette | Creative Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website built with **React** and **Vite**. This project focuses on polished UI interactions, smooth motion, and a unique "system-like" aesthetic.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎨 Core Experience
+- **Interactive Sidebar Navigation**:
+  - Fully collapsible sidebar with smooth width transitions.
+  - **Embedded Music Player**: Custom HTML5 audio player supporting playlists, scrubbing, and direct Spotify links.
+  - **Active State Highlighting**: Sidebar links light up automatically as you scroll through sections (`Home`, `About`, `Projects`, `Contact`).
+- **Responsive Design**:
+  - **Desktop (>1200px)**: Persistent sidebar with multi-column layouts.
+  - **Mobile/Tablet (<1200px)**: Sidebar transforms into a slide-out drawer (Burger menu interaction) to maximize content space.
+  - Adaptive grids for the "About" and "Projects" sections.
 
-## React Compiler
+### 🛠 Tech & Tools
+- **Framework**: React + Vite
+- **Styling**: Pure CSS / CSS Modules (No heavy UI frameworks)
+- **Icons**: `react-icons` (Feather Icons, FontAwesome 6)
+- **Hooks**: Custom hooks like `useKonamiCode`. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🥚 Easter Eggs
+- **Konami Code**: Enter `↑ ↑ ↓ ↓ ← → ← → B A` on your keyboard to trigger a simulated Blue Screen of Death (BSOD) and unlock hidden messages.
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── components/
+│   ├── Layout.jsx       # Main shell, handles Sidebar & Mobile Menu state
+│   ├── Sidebar.jsx      # Navigation & Music Player logic
+│   ├── MusicPlayer      # (Inside Sidebar) Audio controls & Playlist logic
+│   ├── Home.jsx         # Landing section with 3D-style character card
+│   ├── About.jsx        # "Now" card, stats, and hobbies grid
+│   ├── Projects.jsx     # Project showcase with Tech Stack badges
+│   ├── Contact.jsx      # Floating label contact form
+│   └── Bsod.jsx         # Hidden "Blue Screen of Death" component
+├── hooks/
+│   └── useKonamiCode.js # Custom hook for key sequence detection
+├── assets/              # Images, MP3s, and static resources
+└── App.jsx              # Application entry & Global routing
+```
+
+## ⚡ Getting Started
+
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+2.  **Start Development Server**:
+    ```bash
+    npm run dev
+    ```
+
+3.  **Build for Production**:
+    ```bash
+    npm run build
+    ```
+
+## 🎵 Customization
+
+To update the music playlist, edit the `playlist` array in `src/components/Sidebar.jsx`. Ensure you have the corresponding `.mp3` files in your `public/music/` folder.
+
+```javascript
+const playlist = [
+  {
+    title: 'Your Song Title',
+    artist: 'Artist Name',
+    albumArt: '/path-to-cover.jpg',
+    src: '/music/filename.mp3',
+    spotify: 'https://spotify-link...'
+  },
+  // ...
+];
+```
+
+---
+*Created by Noah Calmette*
