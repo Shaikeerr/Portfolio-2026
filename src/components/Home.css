@@ -28,12 +28,12 @@
 .meta-pill {
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.7);
+  color: var(--pill-text);
 }
 
 .main-title {
@@ -42,13 +42,13 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0;
-  color: #020617;
+  color: var(--text-primary);
 }
 
 .main-subtitle {
   margin-top: 0.35rem;
   font-size: 1.3rem;
-  color: rgba(15, 23, 42, 0.75);
+  color: var(--text-secondary);
 }
 
 .cta-row {
@@ -79,9 +79,9 @@
 }
 
 .secondary-cta {
-  background: rgba(15, 23, 42, 0.04);
-  color: #0f172a;
-  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--pill-border);
 }
 
 .secondary-cta span {
@@ -102,7 +102,7 @@
   position: absolute;
   inset: 8%;
   border-radius: 999px;
-  border:1px solid rgba(255, 255, 255, 1);
+  border: 1px solid var(--orbit-border);
 }
 
 .character-card {
@@ -110,10 +110,10 @@
   max-width: 320px;
   aspect-ratio: 3 / 4;
   border-radius: 28px;
-  background: radial-gradient(circle at top, #fdf4ff, #dbeafe 60%, #e5e7eb);
+  background: var(--character-bg);
   box-shadow:
-    0 20px 60px rgba(15, 23, 42, 0.4),
-    0 0 0 1px rgba(148, 163, 184, 0.4);
+    0 20px 60px var(--glass-shadow),
+    0 0 0 1px var(--glass-border);
   overflow: hidden;
   display: flex;
   align-items: center;

@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FiPlay, FiPause, FiSkipBack, FiSkipForward, FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
+import { FiPlay, FiPause, FiSkipBack, FiSkipForward, FiChevronLeft, FiChevronRight, FiMoon, FiSun, FiX } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
 import './Sidebar.css';
+import './SidebarControls.css';
 
 const playlist = [
   {
@@ -132,6 +134,8 @@ const MusicPlayer = ({ isCollapsed }) => {
 };
 
 const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, closeMobile }) => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <aside 
       className={`sidebar ${isCollapsed ? 'is-collapsed' : ''} ${isMobileOpen ? 'mobile-open' : ''}`} 
@@ -140,7 +144,10 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
       <div className="sidebar-header">
         <div className="logo-container">
           <div className="logo-placeholder" aria-hidden="true">
-            <img src="/logo.png" alt="Noah Calmette's logo" />
+            <img 
+              src={theme === 'dark' ? "/logo-dark.png" : "/logo.png"} 
+              alt="Noah Calmette's logo" 
+            />
           </div>
           {(!isCollapsed || isMobileOpen) && (
             <p className="logo-tagline">
@@ -150,9 +157,14 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
           )}
         </div>
 
-        <button onClick={onToggle} className="sidebar-toggle desktop-only">
-          {isCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
-        </button>
+        <div className="sidebar-controls">
+          <button onClick={toggleTheme} className="sidebar-toggle theme-toggle" aria-label="Toggle Theme">
+            {theme === 'dark' ? <FiMoon /> : <FiSun />}
+          </button>
+          <button onClick={onToggle} className="sidebar-toggle desktop-only">
+            {isCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
+          </button>
+        </div>
 
         <button onClick={closeMobile} className="sidebar-toggle mobile-only">
           <FiX />

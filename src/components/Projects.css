@@ -14,8 +14,8 @@
 
 .project-entry {
   border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg-solid);
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -30,10 +30,10 @@
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+  border-bottom: 1px solid var(--card-border);
   font-family: var(--font-secondary);
   font-size: 0.9rem;
-  color: rgba(15, 23, 42, 0.75);
+  color: var(--muted-text);
 }
 
 .project-body {
@@ -53,14 +53,14 @@
 .project-details h3 {
   font-family: var(--font-secondary);
   font-size: 1.8rem;
-  color: #020617;
+  color: var(--heading-text);
   margin: 0 0 1rem 0;
 }
 
 .project-details p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: rgba(15, 23, 42, 0.8);
+  color: var(--body-text);
   margin-bottom: 1.5rem;
 }
 
@@ -73,17 +73,17 @@
 .tech-badge {
   padding: 0.35rem 0.85rem;
   border-radius: 6px;
-  background: rgba(99, 102, 241, 0.1);
-  color: #4f46e5;
+  background: var(--badge-bg);
+  color: var(--badge-text);
   font-family: var(--font-secondary);
   font-size: 0.8rem;
   font-weight: 500;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid var(--badge-border);
   transition: all 0.2s ease;
 }
 
 .tech-badge:hover {
-  background: rgba(99, 102, 241, 0.15);
+  background: var(--badge-border);
   transform: translateY(-1px);
 }
 
@@ -91,23 +91,23 @@
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
-  border-top: 1px solid rgba(148, 163, 184, 0.45);
+  border-top: 1px solid var(--card-border);
   font-family: var(--font-secondary);
   font-size: 0.9rem;
   align-items: center;
-  color : rgba(15, 23, 42, 0.75);
+  color : var(--muted-text);
 }
 
 .view-project-link {
-  color: #0f172a;
+  color: var(--btn-secondary-text);
   text-decoration: none;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.65);
+  border: 1px solid var(--card-border);
   padding: 0.55rem 1.3rem;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  background: rgba(248, 250, 252, 0.9);
+  background: var(--btn-secondary-bg);
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease,
     box-shadow 0.2s ease;
 }

@@ -1,14 +1,30 @@
 import React from 'react';
 import { FiMail, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
 import './Contact.css';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../utils/motion';
 
 const Contact = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-shell">
-        <h2 className="section-title">Contact</h2>
+        <motion.h2 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={fadeIn('down', 'tween', 0.2, 1)}
+          className="section-title"
+        >
+          Contact
+        </motion.h2>
         <div className="contact-grid">
-          <div className="contact-form-wrapper">
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={fadeIn('right', 'tween', 0.2, 1)}
+            className="contact-form-wrapper"
+          >
             <h3 className="contact-title">Got a project in mind?</h3>
             <form className="contact-form">
               <div className="form-group">
@@ -33,8 +49,14 @@ const Contact = () => {
                 <FiSend className="submit-icon" />
               </button>
             </form>
-          </div>
-          <div className="contact-info">
+          </motion.div>
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={fadeIn('left', 'tween', 0.2, 1)}
+            className="contact-info"
+          >
             <h4>Contact Details</h4>
             <p>
               Prefer to reach out directly? You can find me here.
@@ -67,7 +89,7 @@ const Contact = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

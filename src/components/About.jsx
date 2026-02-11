@@ -1,14 +1,30 @@
 import React from 'react';
 import './About.css';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../utils/motion';
 import { FaRecordVinyl, FaGamepad, FaPencil, FaGreaterThan } from "react-icons/fa6";
 
 const About = () => {
   return (
     <section id="about" className="about-section">
       <div className="about-shell">
-        <h2 className="section-title">About</h2>
+        <motion.h2 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={fadeIn('down', 'tween', 0.2, 1)}
+          className="section-title"
+        >
+          About
+        </motion.h2>
         <div className="about-grid">
-          <div className="about-text-content">
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={fadeIn('right', 'tween', 0.2, 1)}
+            className="about-text-content"
+          >
             <p>
               I’m Noah Calmette. I build digital spaces that feel less like static pages and more like interactive journeys. I love combining robust React code with experimental, game-inspired design. 
             </p>
@@ -24,8 +40,15 @@ Whether I’m building a minimalist dashboard or a character-driven landing page
                 <li><FaGreaterThan /> Maybe all of the above, who knows ?</li>
               </ul>
             </div>
-          </div>
-          <div className="about-info-cards">
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={fadeIn('left', 'tween', 0.2, 1)}
+            className="about-info-cards"
+          >
             <div className="info-card">
               <div className="card-header">
                 <span className="card-icon" />
@@ -60,7 +83,7 @@ Whether I’m building a minimalist dashboard or a character-driven landing page
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
 import React from 'react';
 import './Projects.css';
+import { motion } from 'framer-motion';
+import { fadeIn, staggerContainer } from '../utils/motion';
 
 const projects = [
   {
@@ -28,10 +30,28 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <div className="projects-shell">
-        <h2 className="section-title">Projects</h2>
-        <div className="projects-list">
-          {projects.map((project) => (
-            <article className="project-entry" key={project.id}>
+        <motion.h2 
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          variants={fadeIn('down', 'tween', 0.2, 1)}
+          className="section-title"
+        >
+          Projects
+        </motion.h2>
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="projects-list"
+        >
+          {projects.map((project, index) => (
+            <motion.article 
+              variants={fadeIn('up', 'tween', index * 0.2, 1)}
+              className="project-entry" 
+              key={project.id}
+            >
               <header className="project-header">
                 <span className="project-id">{project.id}</span>
                 <span className="project-classification">{project.classification}</span>
@@ -58,9 +78,9 @@ const Projects = () => {
                   View project
                 </a>
               </footer>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
