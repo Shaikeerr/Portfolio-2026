@@ -1,0 +1,124 @@
+.skills-section {
+  padding: 4rem 0;
+}
+
+.skills-shell {
+  padding: 2.5rem 2.75rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .skill-category:last-child {
+    grid-column: 1 / -1; 
+  }
+}
+
+.skill-category {
+  background: var(--card-bg-solid);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(5px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--card-border);
+  padding-bottom: 1rem;
+}
+
+.category-title {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--heading-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  white-space: pre-line;
+}
+
+.category-title svg {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--body-text);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.skill-pill:hover {
+  background: var(--badge-bg);
+  border-color: var(--accent-color);
+  color: var(--badge-text);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--input-focus-glow);
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+  color: var(--nav-icon);
+  transition: color 0.2s ease;
+}
+
+.skill-pill:hover .skill-icon {
+  color: var(--badge-text);
+}
+
+@media (max-width: 1200px) {
+  .skills-shell {
+    padding: 2rem 1.5rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

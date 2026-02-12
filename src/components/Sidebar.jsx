@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FiPlay, FiPause, FiSkipBack, FiSkipForward, FiChevronLeft, FiChevronRight, FiMoon, FiSun, FiX } from 'react-icons/fi';
+import { MdTranslate } from "react-icons/md";
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import './Sidebar.css';
 import './SidebarControls.css';
 
@@ -135,6 +137,7 @@ const MusicPlayer = ({ isCollapsed }) => {
 
 const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, closeMobile }) => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <aside 
@@ -158,9 +161,6 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
         </div>
 
         <div className="sidebar-controls">
-          <button onClick={toggleTheme} className="sidebar-toggle theme-toggle" aria-label="Toggle Theme">
-            {theme === 'dark' ? <FiMoon /> : <FiSun />}
-          </button>
           <button onClick={onToggle} className="sidebar-toggle desktop-only">
             {isCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
           </button>
@@ -179,7 +179,7 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
               onClick={closeMobile}
             >
               <span aria-hidden="true">00</span>
-              {(!isCollapsed || isMobileOpen) && 'Home'}
+              {(!isCollapsed || isMobileOpen) && t('sidebar.home')}
             </a>
           </li>
           <li>
@@ -189,7 +189,17 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
               onClick={closeMobile}
             >
               <span aria-hidden="true">01</span>
-              {(!isCollapsed || isMobileOpen) && 'About'}
+              {(!isCollapsed || isMobileOpen) && t('sidebar.about')}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#skills"
+              className={activeLink === 'skills' ? 'active' : ''}
+              onClick={closeMobile}
+            >
+              <span aria-hidden="true">02</span>
+              {(!isCollapsed || isMobileOpen) && t('sidebar.skills')}
             </a>
           </li>
           <li>
@@ -198,8 +208,8 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
               className={activeLink === 'projects' ? 'active' : ''}
               onClick={closeMobile}
             >
-              <span aria-hidden="true">02</span>
-              {(!isCollapsed || isMobileOpen) && 'Projects'}
+              <span aria-hidden="true">03</span>
+              {(!isCollapsed || isMobileOpen) && t('sidebar.projects')}
             </a>
           </li>
           <li>
@@ -208,8 +218,8 @@ const Sidebar = ({ isCollapsed, onToggle, activeLink = 'home', isMobileOpen, clo
               className={activeLink === 'contact' ? 'active' : ''}
               onClick={closeMobile}
             >
-              <span aria-hidden="true">03</span>
-              {(!isCollapsed || isMobileOpen) && 'Contact'}
+              <span aria-hidden="true">04</span>
+              {(!isCollapsed || isMobileOpen) && t('sidebar.contact')}
             </a>
           </li>
         </ul>

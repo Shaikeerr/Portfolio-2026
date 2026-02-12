@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
-const valorantQuotes = [
-  "Ew... Go take a shower, bro.",
-  "Skye Diff.",
-  "Jett revive me !",
-  "Only 16 HS%... Cringe",
-  "Odin go brrrr",
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const useTypingEffect = (text, speed = 50) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -34,6 +27,7 @@ const useTypingEffect = (text, speed = 50) => {
 };
 
 const Bsod = ({ onClose }) => {
+  const { t } = useLanguage();
   const [bubble, setBubble] = useState({ active: false, text: '' });
   const [isSpeaking, setIsSpeaking] = useState(false);
   const displayedQuote = useTypingEffect(bubble.text);
@@ -41,12 +35,15 @@ const Bsod = ({ onClose }) => {
   const showBubble = useCallback(() => {
     if (isSpeaking) return;
 
-    const randomIndex = Math.floor(Math.random() * valorantQuotes.length);
-    const newQuote = valorantQuotes[randomIndex];
+    const quotes = t('mascot.bsod.quotes');
+    const availableQuotes = Array.isArray(quotes) ? quotes : ["..."];
+    
+    const randomIndex = Math.floor(Math.random() * availableQuotes.length);
+    const newQuote = availableQuotes[randomIndex];
 
     setBubble({ active: true, text: newQuote });
     setIsSpeaking(true);
-  }, [isSpeaking]);
+  }, [isSpeaking, t]);
 
   useEffect(() => {
     if (!isSpeaking) return;
@@ -123,5 +120,6 @@ const Bsod = ({ onClose }) => {
     </div>
   );
 };
+
 
 export default Bsod;

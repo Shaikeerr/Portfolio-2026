@@ -2,31 +2,32 @@ import React from 'react';
 import './Projects.css';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '../utils/motion';
-
-const projects = [
-  {
-    id: '001',
-    title: 'OpenFest',
-    classification: 'Web app · A11Y',
-    description:
-      `OpenFest is a dedicated platform that empowers festival organizers to evaluate their event's accessibility. Through a specialized checklist, it provides a transparent way to communicate disability-friendly features, ensuring culture remains accessible to everyone.`,
-    image: '/Openfest.png',
-    status: 'Live',
-    technologies: ['React', 'Accessibility', 'Tailwind CSS'],
-  },
-  {
-    id: '002',
-    title: 'Ohana',
-    classification: 'Web App · Visual',
-    description:
-      `Inspired by the vibrant social life of Final Fantasy XIV, I built a dedicated space for the Ohana Café. It’s more than just a website; it's a digital home featuring an interactive menu and a staff directory, supported by a custom back-office to keep the community heart beating.`,
-    image: '/Ohana.png',
-    status: 'Concept',
-    technologies: ['React', 'Node.js', 'CSS Modules', 'Figma'],
-  },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Projects = () => {
+  const { t } = useLanguage();
+
+  const projects = [
+    {
+      id: '001',
+      title: 'OpenFest',
+      classification: 'Web app · A11Y',
+      descriptionKey: 'projects.openfest.description',
+      statusKey: 'projects.openfest.status',
+      image: '/Openfest.png',
+      technologies: ['React', 'Accessibility', 'Tailwind CSS'],
+    },
+    {
+      id: '002',
+      title: 'Ohana',
+      classification: 'Web App · Visual',
+      descriptionKey: 'projects.ohana.description',
+      statusKey: 'projects.ohana.status',
+      image: '/Ohana.png',
+      technologies: ['React', 'Node.js', 'CSS Modules', 'Figma'],
+    },
+  ];
+
   return (
     <section id="projects" className="projects-section">
       <div className="projects-shell">
@@ -37,7 +38,7 @@ const Projects = () => {
           variants={fadeIn('down', 'tween', 0.2, 1)}
           className="section-title"
         >
-          Projects
+          {t('projects.title')}
         </motion.h2>
         <motion.div 
           variants={staggerContainer}
@@ -62,7 +63,7 @@ const Projects = () => {
                 </div>
                 <div className="project-details">
                   <h3>{project.title}</h3>
-                  <p>{project.description}</p>
+                  <p>{t(project.descriptionKey)}</p>
                   <div className="tech-stack">
                     {project.technologies.map((tech, index) => (
                       <span key={index} className="tech-badge">
@@ -73,9 +74,9 @@ const Projects = () => {
                 </div>
               </div>
               <footer className="project-footer">
-                <span>Status: {project.status}</span>
+                <span>{t('projects.status')}: {t(project.statusKey)}</span>
                 <a href="#" className="view-project-link">
-                  View project
+                  {t('projects.view')}
                 </a>
               </footer>
             </motion.article>

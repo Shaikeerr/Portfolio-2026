@@ -3,8 +3,11 @@ import { FiMail, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
 import './Contact.css';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="contact-section">
       <div className="contact-shell">
@@ -15,7 +18,7 @@ const Contact = () => {
           variants={fadeIn('down', 'tween', 0.2, 1)}
           className="section-title"
         >
-          Contact
+          {t('contact.title')}
         </motion.h2>
         <div className="contact-grid">
           <motion.div 
@@ -25,15 +28,15 @@ const Contact = () => {
             variants={fadeIn('right', 'tween', 0.2, 1)}
             className="contact-form-wrapper"
           >
-            <h3 className="contact-title">Got a project in mind?</h3>
+            <h3 className="contact-title">{t('contact.formTitle')}</h3>
             <form className="contact-form">
               <div className="form-group">
                 <input type="text" name="name" placeholder=" " required />
-                <label htmlFor="name">Your Name</label>
+                <label htmlFor="name">{t('contact.name')}</label>
               </div>
               <div className="form-group">
                 <input type="email" name="email" placeholder=" " required />
-                <label htmlFor="email">Your Email</label>
+                <label htmlFor="email">{t('contact.email')}</label>
               </div>
               <div className="form-group">
                 <textarea
@@ -42,10 +45,10 @@ const Contact = () => {
                   rows="5"
                   required
                 ></textarea>
-                <label htmlFor="message">Project Details</label>
+                <label htmlFor="message">{t('contact.message')}</label>
               </div>
               <button type="submit" className="submit-button">
-                <span>Send</span>
+                <span>{t('contact.send')}</span>
                 <FiSend className="submit-icon" />
               </button>
             </form>
@@ -57,9 +60,9 @@ const Contact = () => {
             variants={fadeIn('left', 'tween', 0.2, 1)}
             className="contact-info"
           >
-            <h4>Contact Details</h4>
+            <h4>{t('contact.infoTitle')}</h4>
             <p>
-              Prefer to reach out directly? You can find me here.
+              {t('contact.infoText')}
             </p>
             <ul className="contact-links">
               <li>
