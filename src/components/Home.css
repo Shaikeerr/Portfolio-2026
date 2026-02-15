@@ -160,7 +160,6 @@
   position: absolute;
   inset: 8%;
   border-radius: 999px;
-  border: 1px solid var(--orbit-border);
 }
 
 .character-card {
