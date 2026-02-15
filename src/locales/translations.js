@@ -85,6 +85,7 @@ export const translations = {
       title: "Projects",
       status: "Status",
       view: "View project",
+      viewCode: "View Code",
       openfest: {
         description: "OpenFest is a dedicated platform that empowers festival organizers to evaluate their event's accessibility. Through a specialized checklist, it provides a transparent way to communicate disability-friendly features, ensuring culture remains accessible to everyone.",
         status: "Live",
@@ -132,6 +133,7 @@ export const translations = {
       title: "Projets",
       status: "Statut",
       view: "Voir le projet",
+      viewCode: "Voir le code",
       openfest: {
         description: "OpenFest est une plateforme dédiée qui permet aux organisateurs de festivals d'évaluer l'accessibilité de leur événement. Grâce à une checklist spécialisée, elle offre un moyen transparent de communiquer les fonctionnalités adaptées aux handicapés, garantissant que la culture reste accessible à tous.",
         status: "En ligne",

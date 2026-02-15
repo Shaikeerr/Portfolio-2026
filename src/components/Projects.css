@@ -98,6 +98,52 @@
   color : var(--muted-text);
 }
 
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.github-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  color: var(--muted-text);
+  border: 1px solid var(--card-border);
+  background: transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.github-cta:hover,
+.github-cta:focus-visible {
+  color: var(--heading-text);
+  border-color: var(--heading-text);
+  background: var(--card-bg-solid);
+  transform: translateY(-1px);
+  outline: 2px solid var(--heading-text);
+  outline-offset: 2px;
+}
+
+.github-cta svg {
+  font-size: 1.1rem;
+}
+
+.github-cta .github-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .view-project-link {
   color: var(--btn-secondary-text);
   text-decoration: none;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Projects.css';
 import { motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa6';
 import { fadeIn, staggerContainer } from '../utils/motion';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -16,6 +17,7 @@ const Projects = () => {
       statusKey: 'projects.openfest.status',
       image: '/Openfest.png',
       technologies: ['React', 'Accessibility', 'Tailwind CSS'],
+      githubLink: 'https://github.com/morgan-zarka/OpenFest',
     },
     {
       id: '002',
@@ -25,6 +27,7 @@ const Projects = () => {
       statusKey: 'projects.ohana.status',
       image: '/Ohana.png',
       technologies: ['React', 'Node.js', 'CSS Modules', 'Figma'],
+      githubLink: 'https://github.com/Shaikeerr/Ohana'
     },
   ];
 
@@ -74,10 +77,24 @@ const Projects = () => {
                 </div>
               </div>
               <footer className="project-footer">
-                <span>{t('projects.status')}: {t(project.statusKey)}</span>
-                <a href="#" className="view-project-link">
-                  {t('projects.view')}
-                </a>
+                <span className="project-status">{t('projects.status')}: {t(project.statusKey)}</span>
+                <div className="project-actions">
+                  {project.githubLink && (
+                    <a 
+                      href={project.githubLink}
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="github-cta"
+                      aria-label={t('projects.viewCode')}
+                    >
+                      <FaGithub />
+                      <span className="github-text">{t('projects.viewCode')}</span>
+                    </a>
+                  )}
+                  <a href="#" className="view-project-link">
+                    {t('projects.view')}
+                  </a>
+                </div>
               </footer>
             </motion.article>
           ))}

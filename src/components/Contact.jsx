@@ -83,7 +83,7 @@ const Contact = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com"
+                  href="https://www.linkedin.com/in/noah-calmette/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
