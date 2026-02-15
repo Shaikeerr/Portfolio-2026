@@ -1,6 +1,7 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
+import { SiReaddotcv } from "react-icons/si";
 import { fadeIn, staggerContainer } from '../utils/motion';
 import { useLanguage } from '../context/LanguageContext';
 import './Home.css';
@@ -48,6 +49,16 @@ const Home = () => {
             </a>
             <a href="#contact" className="secondary-cta">
               <span>●</span> {t('home.ctaSecondary')}
+            </a>
+            <a 
+              href="/Noah_Calmette_CV.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="cv-cta"
+              aria-label={t('home.ctaCV')}
+            >
+              <SiReaddotcv />
+              <span className="cv-text">{t('home.ctaCV')}</span>
             </a>
           </motion.div>
         </div>

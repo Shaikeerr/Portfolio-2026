@@ -73,6 +73,7 @@ export const translations = {
       subtitle: "French React Developer. Crafting dynamic, expressive interfaces with clean React architecture and polished motion.",
       ctaPrimary: "Explore my work",
       ctaSecondary: "Let's talk !",
+      ctaCV: "My CV",
     },
     skills: {
       title: "Skill Tree // LVL. 20",
@@ -119,6 +120,7 @@ export const translations = {
       subtitle: "Développeur React Français. Je conçois des interfaces dynamiques et expressives avec une architecture React propre et des animations soignées.",
       ctaPrimary: "Voir mon travail",
       ctaSecondary: "Discutons !",
+      ctaCV: "Mon CV",
     },
     skills: {
       title: "Arbre de Compétences // LVL. 20",
