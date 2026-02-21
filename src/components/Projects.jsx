@@ -27,7 +27,8 @@ const Projects = () => {
       statusKey: 'projects.ohana.status',
       image: '/Ohana.png',
       technologies: ['React', 'Node.js', 'CSS Modules', 'Figma'],
-      githubLink: 'https://github.com/Shaikeerr/Ohana'
+      githubLink: 'https://github.com/Shaikeerr/Ohana',
+      link: 'https://www.ohanaffxiv.com',
     },
   ];
 
@@ -91,9 +92,16 @@ const Projects = () => {
                       <span className="github-text">{t('projects.viewCode')}</span>
                     </a>
                   )}
-                  <a href="#" className="view-project-link">
-                    {t('projects.view')}
-                  </a>
+                  {project.link && (
+                    <a 
+                      href={project.link} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="view-project-link"
+                    >
+                      {t('projects.view')}
+                    </a>
+                  )}
                 </div>
               </footer>
             </motion.article>
